@@ -1,0 +1,16 @@
+/
+/ Autor: Jefer Alexis Gonzalez Romero
+/
+	input
+	store	a	/read a
+	input
+	store	b	/read b
+	load	 a
+	add	  b
+	store	c	/c = a + b
+	load 	c
+	output		/Write c
+	halt
+	a, dec 10
+	b, dec 20
+	c, dec 30

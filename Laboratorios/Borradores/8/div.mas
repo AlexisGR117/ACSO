@@ -1,0 +1,27 @@
+/div Cociente division entera
+/Input a, b
+/Output a div b
+		input 
+		store div_a
+		input
+		store div_b
+		clear
+		store div_i
+div_w,          load div_a
+		subt div_b
+		skipcond 000
+		jump div_body_w
+		jump div_end_w
+div_body_w,     store div_a
+		load div_i
+		add div_one
+		store div_i
+		jump div_w
+div_end_w,      load div_i
+		output
+		halt
+
+		div_a, dec 10	
+		div_b, dec 20
+		div_i, dec 30
+		div_one, dec 1

@@ -1,0 +1,176 @@
+     Assembly listing for: 8c.mas
+                Assembled: Wed Oct 19 20:16:55 COT 2022
+
+         |                                  /8c Solucion del laboratorio 5a
+         |                                  /Input a, b, c, d, e
+         |                                  /Output Numero de pasajero que habra por avion (p) y el numero de 
+         |                                  /aviones que volaran en total
+000 A000 |             CLEAR                 
+001 2043 |             STORE t               
+002 5000 |             INPUT                 
+003 203D |             STORE a               
+004 2053 |             STORE gcd_a           
+005 5000 |             INPUT                 
+006 203E |             STORE b               
+007 2054 |             STORE gcd_b           
+008 0044 |             JNS gcd               
+009 2042 |             STORE p               
+00A 2053 |             STORE gcd_a           
+00B 5000 |             INPUT                 
+00C 203F |             STORE c               
+00D 2054 |             STORE gcd_b           
+00E 0044 |             JNS gcd               
+00F 2042 |             STORE p               
+010 2053 |             STORE gcd_a           
+011 5000 |             INPUT                 
+012 2040 |             STORE d               
+013 2054 |             STORE gcd_b           
+014 0044 |             JNS gcd               
+015 2042 |             STORE p               
+016 2053 |             STORE gcd_a           
+017 5000 |             INPUT                 
+018 2041 |             STORE e               
+019 2054 |             STORE gcd_b           
+01A 0044 |             JNS gcd               
+01B 2042 |             STORE p               
+01C 2074 |             STORE div_b           
+01D 6000 |             OUTPUT                
+01E 103D |             LOAD a                
+01F 2073 |             STORE div_a           
+020 0064 |             JNS div               
+021 6000 |             OUTPUT                
+022 3043 |             ADD t                 
+023 2043 |             STORE t               
+024 103E |             LOAD b                
+025 2073 |             STORE div_a           
+026 0064 |             JNS div               
+027 6000 |             OUTPUT                
+028 3043 |             ADD t                 
+029 2043 |             STORE t               
+02A 103F |             LOAD c                
+02B 2073 |             STORE div_a           
+02C 0064 |             JNS div               
+02D 6000 |             OUTPUT                
+02E 3043 |             ADD t                 
+02F 2043 |             STORE t               
+030 1040 |             LOAD d                
+031 2073 |             STORE div_a           
+032 0064 |             JNS div               
+033 6000 |             OUTPUT                
+034 3043 |             ADD t                 
+035 2043 |             STORE t               
+036 1041 |             LOAD e                
+037 2073 |             STORE div_a           
+038 0064 |             JNS div               
+039 6000 |             OUTPUT                
+03A 3043 |             ADD t                 
+03B 6000 |             OUTPUT                
+03C 7000 |             HALT                  
+         |                                  
+03D 000A |  a          DEC 10                
+03E 0014 |  b          DEC 20                
+03F 001E |  c          DEC 30                
+040 0028 |  d          DEC 40                
+041 0032 |  e          DEC 50                
+042 003C |  p          DEC 60                
+043 0046 |  t          DEC 70                
+         |                                  
+044 0001 |  gcd        DEC 1                 
+045 1054 |  gcd_w      LOAD gcd_b            
+046 8400 |             SKIPCOND 400          
+047 9049 |             JUMP gcd_body_w       
+048 9051 |             JUMP gcd_end_w        
+049 1053 |  gcd_body_w LOAD gcd_a            
+04A 2062 |             STORE mod_a           
+04B 1054 |             LOAD gcd_b            
+04C 2053 |             STORE gcd_a           
+04D 2063 |             STORE mod_b           
+04E 0057 |             JNS mod               
+04F 2054 |             STORE gcd_b           
+050 9045 |             JUMP gcd_w            
+051 1053 |  gcd_end_w  LOAD gcd_a            
+052 C044 |             JUMPI gcd             
+         |                                  
+053 006E |  gcd_a      DEC 110               
+054 0078 |  gcd_b      DEC 120               
+055 0082 |  gcd_c      DEC 130               
+056 0001 |  gcd_one    DEC 1                 
+         |                                  		
+057 0000 |  mod        DEC 0                 
+058 1062 |             LOAD mod_a            
+059 4063 |             SUBT mod_b            
+05A 8000 |  mod_w      SKIPCOND 000          
+05B 905D |             JUMP mod_body_w       
+05C 9060 |             JUMP mod_end_w        
+05D 2062 |  mod_body_w STORE mod_a           
+05E 4063 |             SUBT mod_b            
+05F 905A |             JUMP mod_w            
+060 1062 |  mod_end_w  LOAD mod_a            
+061 C057 |             JUMPI mod             
+         |                                  
+062 00D2 |  mod_a      DEC 210               
+063 00DC |  mod_b      DEC 220               
+         |                                  
+064 0002 |  div        DEC 2                 
+065 A000 |             CLEAR                 
+066 2075 |             STORE div_i           
+067 1073 |  div_w      LOAD div_a            
+068 4074 |             SUBT div_b            
+069 8000 |             SKIPCOND 000          
+06A 906C |             JUMP div_body_w       
+06B 9071 |             JUMP div_end_w        
+06C 2073 |  div_body_w STORE div_a           
+06D 1075 |             LOAD div_i            
+06E 3076 |             ADD div_one           
+06F 2075 |             STORE div_i           
+070 9067 |             JUMP div_w            
+071 1075 |  div_end_w  LOAD div_i            
+072 C064 |             JUMPI div             
+         |                                  
+073 0136 |  div_a      DEC 310               
+074 0140 |  div_b      DEC 320               
+075 014A |  div_i      DEC 330               
+076 0001 |  div_one    DEC 1                 
+
+Assembly successful.
+
+         SYMBOL TABLE
+         ------------------------------------------------------
+          Symbol     | Defined | References 
+         ------------+---------+-------------------------------
+          a          |   03D   | 003, 01E
+          b          |   03E   | 006, 024
+          c          |   03F   | 00C, 02A
+          d          |   040   | 012, 030
+          div        |   064   | 020, 026, 02C, 032, 038, 072
+          div_a      |   073   | 01F, 025, 02B, 031, 037, 067, 
+                     |         | 06C
+          div_b      |   074   | 01C, 068
+          div_body_w |   06C   | 06A
+          div_end_w  |   071   | 06B
+          div_i      |   075   | 066, 06D, 06F, 071
+          div_one    |   076   | 06E
+          div_w      |   067   | 070
+          e          |   041   | 018, 036
+          gcd        |   044   | 008, 00E, 014, 01A, 052
+          gcd_a      |   053   | 004, 00A, 010, 016, 049, 04C, 
+                     |         | 051
+          gcd_b      |   054   | 007, 00D, 013, 019, 045, 04B, 
+                     |         | 04F
+          gcd_body_w |   049   | 047
+          gcd_c      |   055   | 
+          gcd_end_w  |   051   | 048
+          gcd_one    |   056   | 
+          gcd_w      |   045   | 050
+          mod        |   057   | 04E, 061
+          mod_a      |   062   | 04A, 058, 05D, 060
+          mod_b      |   063   | 04D, 059, 05E
+          mod_body_w |   05D   | 05B
+          mod_end_w  |   060   | 05C
+          mod_w      |   05A   | 05F
+          p          |   042   | 009, 00F, 015, 01B
+          t          |   043   | 001, 022, 023, 028, 029, 02E, 
+                     |         | 02F, 034, 035, 03A
+         ------------------------------------------------------
+
+

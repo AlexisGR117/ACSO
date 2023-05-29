@@ -1,0 +1,43 @@
+ -----------------------
+ Symbol       | Location
+ -------------+---------
+ a            |   036
+ b            |   037
+ body_while_2 |   011
+ c            |   038
+ div          |   05A
+ div_a        |   069
+ div_b        |   06A
+ div_body_w   |   062
+ div_end_w    |   067
+ div_i        |   06B
+ div_one      |   06C
+ div_w        |   05D
+ end_while    |   035
+ end_while_2  |   02D
+ gcd          |   03A
+ gcd_a        |   049
+ gcd_b        |   04A
+ gcd_body_w   |   03F
+ gcd_c        |   04B
+ gcd_end_w    |   047
+ gcd_one      |   04C
+ gcd_w        |   03B
+ mod          |   04D
+ mod_a        |   058
+ mod_b        |   059
+ mod_body_w   |   053
+ mod_end_w    |   056
+ mod_w        |   050
+ mul          |   06D
+ mul_a        |   07E
+ mul_b        |   07F
+ mul_end_w    |   07C
+ mul_i        |   081
+ mul_one      |   082
+ mul_s        |   080
+ mul_w        |   071
+ one          |   039
+ while        |   002
+ while_2      |   00D
+

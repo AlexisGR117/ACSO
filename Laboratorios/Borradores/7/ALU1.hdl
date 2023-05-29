@@ -1,0 +1,58 @@
+// C = f1' f0' A0 B1 B0 + f1' f0' A1 B1 + f1' f0' A1 A0 B0
+// C = f1' f0'(A0 B1 B0 + A1 B1 + A1 A0 B0)
+// C = f1' f0'(A0 B0 (A1 + B1) + A1 B1)
+
+// C1 = f1' A1' A0' B1 + f1' A1' B1 B0' + f0' A1' A0 B1' B0 + f1' A1 A0' B1' + f1' A1 B1' B0' + f1' A1 A0 B1 B0 + f1' f0 B1 + f1' f0 A1 + f0 A1 B1 + f1 f0' A1'
+// C1 = f1'(A1' A0' B1 + A1' B1 B0' + A1 A0' B1' + A1 B1' B0' + A1 A0 B1 B0 + f0 B1 + f0 A1) + f0' A1'(A0 B1' B0 + f1) + f0 A1 B1
+// C1 = f1'(A1' B1 (A0' + B0') + A1 B1'(A0' + B0') + B1 (A1 A0 B0 + f0)+ f0 A1) + f0' A1'(A0 B1' B0 + f1) + f0 A1 B1
+// C1 = f1'((A0' + B0')(A1' B1 + A1 B1') + B1 (A1 A0 B0 + f0) + f0 A1) + f0' A1'(A0 B1' B0 + f1) + f0 A1 B1
+// C1 = f1'((A0' + B0')(A1 XOR B1) + B1 (A1 A0 B0 + f0) + f0 A1) + f0' A1'(A0 B1' B0 + f1) + f0 A1 B1
+
+// C0 = f1' A0' B0 + f1' A0 B0' + f0 A0 B0 + f1 f0' A0'
+// C0 = A0' (f1 f0' + B0 f1') + A0 (B0 f0 + B0' f1')
+
+CHIP ALU1 {
+	IN f1,f0,A1,A0,B1,B0;
+	OUT C,C1,C0;
+	PARTS:
+		Not(in=f1, out=Nf1);
+		Not(in=f0, out=Nf0);
+		Not(in=A1, out=NA1);
+		Not(in=A0, out=NA0);
+		Not(in=B1, out=NB1);
+		Not(in=B0, out=NB0);
+		Or(a=A1, b=B1, out=S1);
+		And(a=A0, b=B0, out=S2);
+		And(a=S2, b=S1, out=S3);
+		And(a=A1, b=B1, out=S4);
+		Or(a=S3, b=S4, out=S5);
+		And(a=Nf1, b=Nf0, out=S6);
+		And(a=S6, b=S5, out=C);
+		Or(a=NA0, b=NB0, out=S7);
+		Xor(a=A1, b=B1, out=S8);
+		And(a=S7, b=S8, out=S9);
+		And(a=A1, b=S2, out=S10);
+		Or(a=S10, b=f0, out=S31);
+		And(a=B1, b=S31, out=S11);
+		And(a=f0, b=A1, out=S12);
+		Or(a=S9, b=S11, out=S13);
+		Or(a=S13, b=S12, out=S14);
+		And(a=Nf1, b=S14, out=S15);
+		And(a=Nf0, b=NA1, out=S16);
+		And(a=A0, b=NB1, out=S17);
+		And(a=S17, b=B0, out=S18);
+		Or(a=S18, b=f1, out=S19);
+		And(a=S16, b=S19, out=S20);
+		And(a=f0, b=S4, out=S21);
+		Or(a=S15, b=S20, out=S22);
+		Or(a=S22, b=S21, out=C1);
+		And(a=f1, b=Nf0, out=S23);
+		And(a=B0, b=Nf1, out=S24);
+		Or(a=S23, b=S24, out=S25);
+		And(a=NA0, b=S25, out=S26);
+		And(a=B0, b=f0, out=S27);
+		And(a=NB0, b=Nf1, out=S28);
+		Or(a=S27, b=S28, out=S29);
+		And(a=A0, b=S29, out=S30);
+		Or(a=S26, b=S30, out=C0);
+}

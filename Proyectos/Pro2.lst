@@ -1,0 +1,137 @@
+     Assembly listing for: Pro2.mas
+                Assembled: Sun Dec 04 18:08:07 COT 2022
+
+000 5000 |                INPUT                    
+001 4025 |                SUBT uno                 
+002 2022 |  while         STORE n                  
+003 8000 |                SKIPCOND 000             
+004 9006 |                JUMP body_while          
+005 901F |                JUMP end_while           
+006 1024 |  body_while    LOAD cero                
+007 2023 |                STORE r                  
+008 5000 |                INPUT                    
+009 2020 |                STORE a                  
+00A 5000 |                INPUT                    
+00B 2021 |                STORE b                  
+00C 4020 |  while2        SUBT a                   
+00D 8000 |                SKIPCOND 000             
+00E 9010 |                JUMP body_while2         
+00F 901A |                JUMP end_while2          
+010 1020 |  body_while2   LOAD a                   
+011 2046 |                STORE prime_a            
+012 0026 |                JNS prime                
+013 3023 |                ADD r                    
+014 2023 |                STORE r                  
+015 1020 |                LOAD a                   
+016 3025 |                ADD uno                  
+017 2020 |                STORE a                  
+018 1021 |                LOAD b                   
+019 900C |                JUMP while2              
+01A 1023 |  end_while2    LOAD r                   
+01B 6000 |                OUTPUT                   
+01C 1022 |                LOAD n                   
+01D 4025 |                SUBT uno                 
+01E 9002 |                JUMP while               
+01F 7000 |  end_while     HALT                     
+         |                                        
+020 000A |  a             DEC 10                   
+021 0014 |  b             DEC 20                   
+022 001E |  n             DEC 30                   
+023 0028 |  r             DEC 40                   
+024 0000 |  cero          DEC 0                    
+025 0001 |  uno           DEC 1                    
+         |                                        
+026 0001 |  prime         DEC 1                    
+027 1024 |                LOAD cero                
+028 2049 |                STORE prime_r            
+029 104A |                LOAD dos                 
+02A 2047 |                STORE prime_b            
+02B 2057 |                STORE mod_b              
+02C 1046 |                LOAD prime_a             
+02D 4025 |                SUBT uno                 
+02E 8400 |                SKIPCOND 400             
+02F 9031 |                JUMP prime_w             
+030 9044 |                JUMP prime_end_if2       
+031 1046 |  prime_w       LOAD prime_a             
+032 2056 |                STORE mod_a              
+033 4025 |                SUBT uno                 
+034 4047 |                SUBT prime_b             
+035 8000 |                SKIPCOND 000             
+036 9038 |                JUMP prime_body_w        
+037 9042 |                JUMP prime_end_w         
+038 004B |  prime_body_w  JNS mod                  
+039 8400 |                SKIPCOND 400             
+03A 903C |                JUMP prime_end_if        
+03B 9044 |                JUMP prime_end_if2       
+03C 1047 |  prime_end_if  LOAD prime_b             
+03D 3025 |                ADD uno                  
+03E 2047 |                STORE prime_b            
+03F 2057 |                STORE mod_b              
+040 1046 |                LOAD prime_a             
+041 9031 |                JUMP prime_w             
+042 1025 |  prime_end_w   LOAD uno                 
+043 2049 |                STORE prime_r            
+044 1049 |  prime_end_if2 LOAD prime_r             
+045 C026 |                JUMPI prime              
+         |                                        
+046 006E |  prime_a       DEC 110                  
+047 0078 |  prime_b       DEC 120                  
+048 0082 |  prime_c       DEC 130                  
+049 008C |  prime_r       DEC 140                  
+04A 0002 |  dos           DEC 2                    
+         |                                        
+04B 0000 |  mod           DEC 0                    
+04C 1056 |                LOAD mod_a               
+04D 4057 |                SUBT mod_b               
+04E 8000 |  mod_w         SKIPCOND 000             
+04F 9051 |                JUMP mod_body_w          
+050 9054 |                JUMP mod_end_w           
+051 2056 |  mod_body_w    STORE mod_a              
+052 4057 |                SUBT mod_b               
+053 904E |                JUMP mod_w               
+054 1056 |  mod_end_w     LOAD mod_a               
+055 C04B |                JUMPI mod                
+         |                                        
+056 00D2 |  mod_a         DEC 210                  
+057 00DC |  mod_b         DEC 220                  
+         |                                        				
+
+Assembly successful.
+
+         SYMBOL TABLE
+         ---------------------------------------------------------
+          Symbol        | Defined | References 
+         ---------------+---------+-------------------------------
+          a             |   020   | 009, 00C, 010, 015, 017
+          b             |   021   | 00B, 018
+          body_while    |   006   | 004
+          body_while2   |   010   | 00E
+          cero          |   024   | 006, 027
+          dos           |   04A   | 029
+          end_while     |   01F   | 005
+          end_while2    |   01A   | 00F
+          mod           |   04B   | 038, 055
+          mod_a         |   056   | 032, 04C, 051, 054
+          mod_b         |   057   | 02B, 03F, 04D, 052
+          mod_body_w    |   051   | 04F
+          mod_end_w     |   054   | 050
+          mod_w         |   04E   | 053
+          n             |   022   | 002, 01C
+          prime         |   026   | 012, 045
+          prime_a       |   046   | 011, 02C, 031, 040
+          prime_b       |   047   | 02A, 034, 03C, 03E
+          prime_body_w  |   038   | 036
+          prime_c       |   048   | 
+          prime_end_if  |   03C   | 03A
+          prime_end_if2 |   044   | 030, 03B
+          prime_end_w   |   042   | 037
+          prime_r       |   049   | 028, 043, 044
+          prime_w       |   031   | 02F, 041
+          r             |   023   | 007, 013, 014, 01A
+          uno           |   025   | 001, 016, 01D, 02D, 033, 03D, 
+                        |         | 042
+          while         |   002   | 01E
+          while2        |   00C   | 019
+         ---------------------------------------------------------
+
+

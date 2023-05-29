@@ -1,0 +1,6 @@
+CHIP Carry16 {
+    IN c;
+    OUT carry[16];
+    PARTS:
+		And(a=true, b=c, out=carry[0]);	    
+}

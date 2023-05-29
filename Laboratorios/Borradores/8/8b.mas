@@ -1,0 +1,36 @@
+/8b Escribe el mayor valor dados tres numeros
+/Input a, b, c
+/Output mayor valor
+		input 
+		store a		/read a
+		input
+		store b		/read b
+		input
+		store c		/read c
+		load a
+		subt b
+		skipcond 800	   /a > b
+		jump else
+		load a	      
+		subt c
+		skipcond 800	   /a > c
+		jump else2
+		load a		
+		jump endif
+else2, 	 load c
+		jump endif
+else, 	  load b
+		subt c
+		skipcond 800	   /b > c
+		jump else3
+		load b
+		jump endif
+else3, 	 load c
+endif,	  store m
+		output		 /write higher value
+		halt
+
+		a, dec 10	
+		b, dec 20
+		c, dec 30
+		m, dec 40

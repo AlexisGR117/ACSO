@@ -1,0 +1,59 @@
+/8a Calcula un polinomio establecido
+/Input a, b, c, X
+/Output a * X ^ 2 + b * X + c
+		input 
+		store a
+		input
+		store b
+		input
+		store c
+		input
+		store x
+		store mul_a
+		store mul_b
+		jns mul
+		store mul_b
+		load a
+		store mul_a
+		jns mul
+		store y
+		load b
+		store mul_a
+		load x
+		store mul_b
+		jns mul
+		add y
+		add c
+		store y
+		output
+		halt
+		
+		a, dec 10
+		b, dec 20
+		c, dec 30
+		x, dec 40
+		y, dec 50
+
+		mul, dec 0
+		clear
+		store mul_s
+		store mul_i
+mul_w,          load mul_i
+		subt mul_b
+		skipcond 000
+		jump mul_end_w
+		load mul_s
+		add mul_a
+		store mul_s
+		load mul_i
+		add mul_one
+		store mul_i
+		jump mul_w
+mul_end_w,      load mul_s
+		jumpi mul
+		
+		mul_a, dec 110	
+		mul_b, dec 120
+		mul_s, dec 130
+		mul_i, dec 140
+		mul_one, dec 1

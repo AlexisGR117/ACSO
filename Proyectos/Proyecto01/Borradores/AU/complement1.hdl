@@ -1,0 +1,8 @@
+CHIP complement1 {
+	IN a2[16],a1[16],a0[16];
+	OUT b2[16],b1[16],b0[16];
+	PARTS:
+		Not16(in=a2, out=b2);
+		Not16(in=a1, out=b1);
+		Not16(in=a0, out=b0);
+}

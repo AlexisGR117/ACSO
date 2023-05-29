@@ -1,0 +1,8 @@
+CHIP Mux48 {
+    IN  a2[16],a1[16],a0[16],b2[16],b1[16],b0[16],sel;
+    OUT c2[16],c1[16],c0[16];
+    PARTS:
+		Mux16(a=a2, b=b2, sel=sel, out=c2);
+		Mux16(a=a1, b=b1, sel=sel, out=c1);
+		Mux16(a=a0, b=b0, sel=sel, out=c0);
+}

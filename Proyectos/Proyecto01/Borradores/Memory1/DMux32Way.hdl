@@ -1,0 +1,41 @@
+CHIP DMux32Way {
+    IN in,sel[5];
+    OUT a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,aa,ab,ac,ad,ae,af;
+
+    PARTS:
+	DMux(in=in, sel=sel[4], a=SA, b=SB);
+
+	DMux(in=SA, sel=sel[3], a=SC, b=SD);
+	DMux(in=SB, sel=sel[3], a=SE, b=SF);
+
+	DMux(in=SC, sel=sel[2], a=SG, b=SH);
+	DMux(in=SD, sel=sel[2], a=SI, b=SJ);
+	DMux(in=SE, sel=sel[2], a=SK, b=SL);
+	DMux(in=SF, sel=sel[2], a=SM, b=SN);
+
+	DMux(in=SG, sel=sel[1], a=SO, b=SP);
+	DMux(in=SH, sel=sel[1], a=SQ, b=SR);
+	DMux(in=SI, sel=sel[1], a=SS, b=ST);
+	DMux(in=SJ, sel=sel[1], a=SU, b=SV);
+	DMux(in=SK, sel=sel[1], a=SW, b=SX);
+	DMux(in=SL, sel=sel[1], a=SY, b=SZ);
+	DMux(in=SM, sel=sel[1], a=SAA, b=SAB);
+	DMux(in=SN, sel=sel[1], a=SAC, b=SAD);
+
+	DMux(in=SO, sel=sel[0], a=a, b=b);
+	DMux(in=SP, sel=sel[0], a=c, b=d);
+	DMux(in=SQ, sel=sel[0], a=e, b=f);
+	DMux(in=SR, sel=sel[0], a=g, b=h);
+	DMux(in=SS, sel=sel[0], a=i, b=j);
+	DMux(in=ST, sel=sel[0], a=k, b=l);
+	DMux(in=SU, sel=sel[0], a=m, b=n);
+	DMux(in=SV, sel=sel[0], a=o, b=p);
+	DMux(in=SW, sel=sel[0], a=q, b=r);
+	DMux(in=SX, sel=sel[0], a=s, b=t);
+	DMux(in=SY, sel=sel[0], a=u, b=v);
+	DMux(in=SZ, sel=sel[0], a=w, b=x);
+	DMux(in=SAA, sel=sel[0], a=y, b=z);
+	DMux(in=SAB, sel=sel[0], a=aa, b=ab);
+	DMux(in=SAC, sel=sel[0], a=ac, b=ad);
+	DMux(in=SAD, sel=sel[0], a=ae, b=af);
+}

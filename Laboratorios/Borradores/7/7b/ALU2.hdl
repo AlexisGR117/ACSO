@@ -1,0 +1,18 @@
+CHIP ALU2 {
+	IN f1,f0,A1,A0,B1,B0;
+	OUT C,C1,C0;
+	PARTS:
+		DMux4Way(in=A1, sel1=f1, sel0=f0, a=A1a, b=A1b, c=A1c, d=A1d);
+		DMux4Way(in=A0, sel1=f1, sel0=f0, a=A0a, b=A0b, c=A0c, d=A0d); 		
+		DMux4Way(in=B1, sel1=f1, sel0=f0, a=B1a, b=B1b, c=B1c, d=B1d); 		
+		DMux4Way(in=B0, sel1=f1, sel0=f0, a=B0a, b=B0b, c=B0c, d=B0d);
+
+		Add2(A1=A1a, A0=A0a, B1=B1a, B0=B0a, C=Sa, C1=S1a, C0=S0a);
+		Or2(A1=A1b, A0=A0b, B1=B1b, B0=B0b, C1=S1b, C0=S0b);
+		Not2(A1=A1c, A0=A0c, C1=S1c, C0=S0c);
+		And2(A1=A1d, A0=A0d, B1=B1d, B0=B0d, C1=S1d, C0=S0d);
+
+		Mux4Way(a=Sa, b=false, c=false, d=false, sel1=f1, sel0=f0, out=C);
+		Mux4Way(a=S1a, b=S1b, c=S1c, d=S1d, sel1=f1, sel0=f0, out=C1); 	
+		Mux4Way(a=S0a, b=S0b, c=S0c, d=S0d, sel1=f1, sel0=f0, out=C0); 						
+}

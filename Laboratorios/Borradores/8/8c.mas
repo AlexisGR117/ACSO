@@ -1,0 +1,130 @@
+/8c Solucion del laboratorio 5a
+/Input a, b, c, d, e
+/Output Numero de pasajero que habra por avion (p) y el numero de 
+/aviones que volaran en total
+		clear
+		store t
+		input
+		store a
+		store gcd_a
+		input
+		store b
+		store gcd_b
+		jns gcd
+		store p
+		store gcd_a
+		input
+		store c
+		store gcd_b
+		jns gcd
+		store p
+		store gcd_a
+		input
+		store d
+		store gcd_b
+		jns gcd
+		store p
+		store gcd_a
+		input
+		store e
+		store gcd_b
+		jns gcd
+		store p
+		store div_b
+		output
+		load a
+		store div_a
+		jns div
+		output
+		add t
+		store t
+		load b
+		store div_a
+		jns div
+		output
+		add t
+		store t
+		load c
+		store div_a
+		jns div
+		output
+		add t
+		store t
+		load d
+		store div_a
+		jns div
+		output
+		add t
+		store t
+		load e
+		store div_a
+		jns div
+		output
+		add t
+		output
+		halt		
+
+		a, dec 10	
+		b, dec 20
+		c, dec 30
+		d, dec 40
+		e, dec 50
+		p, dec 60		
+		t, dec 70
+
+		gcd, dec 1
+gcd_w,          load gcd_b
+		skipcond 400
+		jump gcd_body_w
+		jump gcd_end_w
+gcd_body_w,     load gcd_a
+		store mod_a
+		load gcd_b
+		store gcd_a
+		store mod_b
+		jns mod
+		store gcd_b
+		jump gcd_w
+gcd_end_w,      load gcd_a
+		jumpi gcd
+
+		gcd_a, dec 110	
+		gcd_b, dec 120
+		gcd_c, dec 130
+		gcd_one, dec 1
+		
+		mod, dec 0
+                load mod_a
+		subt mod_b
+mod_w,	  skipcond 000
+		jump mod_body_w
+		jump mod_end_w
+mod_body_w,     store mod_a
+		subt mod_b
+		jump mod_w
+mod_end_w,      load mod_a
+		jumpi mod
+
+		mod_a, dec 210	
+		mod_b, dec 220
+
+		div, dec 2
+		clear
+		store div_i
+div_w,          load div_a
+		subt div_b
+		skipcond 000
+		jump div_body_w
+		jump div_end_w
+div_body_w,     store div_a
+		load div_i
+		add div_one
+		store div_i
+		jump div_w
+div_end_w,      load div_i
+		jumpi div
+
+		div_a, dec 310	
+		div_b, dec 320
+		div_i, dec 330
+		div_one, dec 1

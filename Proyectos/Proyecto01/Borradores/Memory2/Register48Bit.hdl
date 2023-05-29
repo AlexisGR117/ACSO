@@ -1,0 +1,55 @@
+CHIP Register48Bit {
+    IN in2[16],in1[16],in0[16],load;
+    OUT out2[16],out1[16],out0[16];
+    PARTS:
+		Bit(in=in2[0], load=load, out=out2[0]);
+		Bit(in=in2[1], load=load, out=out2[1]);
+		Bit(in=in2[2], load=load, out=out2[2]);
+		Bit(in=in2[3], load=load, out=out2[3]);
+		Bit(in=in2[4], load=load, out=out2[4]);
+		Bit(in=in2[5], load=load, out=out2[5]);
+		Bit(in=in2[6], load=load, out=out2[6]);
+		Bit(in=in2[7], load=load, out=out2[7]);
+		Bit(in=in2[8], load=load, out=out2[8]);
+		Bit(in=in2[9], load=load, out=out2[9]);
+		Bit(in=in2[10], load=load, out=out2[10]);
+		Bit(in=in2[11], load=load, out=out2[11]);
+		Bit(in=in2[12], load=load, out=out2[12]);
+		Bit(in=in2[13], load=load, out=out2[13]);
+		Bit(in=in2[14], load=load, out=out2[14]);
+		Bit(in=in2[15], load=load, out=out2[15]);
+
+		Bit(in=in1[0], load=load, out=out1[0]);
+		Bit(in=in1[1], load=load, out=out1[1]);
+		Bit(in=in1[2], load=load, out=out1[2]);
+		Bit(in=in1[3], load=load, out=out1[3]);
+		Bit(in=in1[4], load=load, out=out1[4]);
+		Bit(in=in1[5], load=load, out=out1[5]);
+		Bit(in=in1[6], load=load, out=out1[6]);
+		Bit(in=in1[7], load=load, out=out1[7]);
+		Bit(in=in1[8], load=load, out=out1[8]);
+		Bit(in=in1[9], load=load, out=out1[9]);
+		Bit(in=in1[10], load=load, out=out1[10]);
+		Bit(in=in1[11], load=load, out=out1[11]);
+		Bit(in=in1[12], load=load, out=out1[12]);
+		Bit(in=in1[13], load=load, out=out1[13]);
+		Bit(in=in1[14], load=load, out=out1[14]);
+		Bit(in=in1[15], load=load, out=out1[15]);
+
+		Bit(in=in0[0], load=load, out=out0[0]);
+		Bit(in=in0[1], load=load, out=out0[1]);
+		Bit(in=in0[2], load=load, out=out0[2]);
+		Bit(in=in0[3], load=load, out=out0[3]);
+		Bit(in=in0[4], load=load, out=out0[4]);
+		Bit(in=in0[5], load=load, out=out0[5]);
+		Bit(in=in0[6], load=load, out=out0[6]);
+		Bit(in=in0[7], load=load, out=out0[7]);
+		Bit(in=in0[8], load=load, out=out0[8]);
+		Bit(in=in0[9], load=load, out=out0[9]);
+		Bit(in=in0[10], load=load, out=out0[10]);
+		Bit(in=in0[11], load=load, out=out0[11]);
+		Bit(in=in0[12], load=load, out=out0[12]);
+		Bit(in=in0[13], load=load, out=out0[13]);
+		Bit(in=in0[14], load=load, out=out0[14]);
+		Bit(in=in0[15], load=load, out=out0[15]);
+}

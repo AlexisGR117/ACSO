@@ -1,0 +1,195 @@
+     Assembly listing for: 8d.mas
+                Assembled: Tue Oct 04 19:34:11 COT 2022
+
+         |                                      /8d Solucion del laboratorio 8d
+         |                                      /Input Numero de fracciones egipcias a calculas. Numerador y denominador de las fracciones
+         |                                      /Output Denominadores de las fracciones egipcias y un cero final 
+000 5000 |               INPUT                   
+001 2036 |               STORE a                 
+002 8800 |  while        SKIPCOND 800            
+003 9035 |               JUMP end_while          
+004 5000 |               INPUT                   
+005 2037 |               STORE b                 
+006 207E |               STORE mul_a             
+007 2059 |               STORE mod_b             
+008 206A |               STORE div_b             
+009 5000 |               INPUT                   
+00A 2038 |               STORE c                 
+00B 2058 |               STORE mod_a             
+00C 2069 |               STORE div_a             
+00D 004D |  while_2      JNS mod                 
+00E 8400 |               SKIPCOND 400            
+00F 9011 |               JUMP body_while_2       
+010 902D |               JUMP end_while_2        
+011 005A |  body_while_2 JNS div                 
+012 3039 |               ADD one                 
+013 6000 |               OUTPUT                  
+014 207F |               STORE mul_b             
+015 006D |               JNS mul                 
+016 4038 |               SUBT c                  
+017 2069 |               STORE div_a             
+018 2049 |               STORE gcd_a             
+019 1038 |               LOAD c                  
+01A 207E |               STORE mul_a             
+01B 006D |               JNS mul                 
+01C 2038 |               STORE c                 
+01D 204A |               STORE gcd_b             
+01E 003A |               JNS gcd                 
+01F 206A |               STORE div_b             
+020 005A |               JNS div                 
+021 2037 |               STORE b                 
+022 207E |               STORE mul_a             
+023 2059 |               STORE mod_b             
+024 1038 |               LOAD c                  
+025 2069 |               STORE div_a             
+026 005A |               JNS div                 
+027 2038 |               STORE c                 
+028 2058 |               STORE mod_a             
+029 2069 |               STORE div_a             
+02A 1037 |               LOAD b                  
+02B 206A |               STORE div_b             
+02C 900D |               JUMP while_2            
+02D 005A |  end_while_2  JNS div                 
+02E 6000 |               OUTPUT                  
+02F A000 |               CLEAR                   
+030 6000 |               OUTPUT                  
+031 1036 |               LOAD a                  
+032 4039 |               SUBT one                
+033 2036 |               STORE a                 
+034 9002 |               JUMP while              
+035 7000 |  end_while    HALT                    
+         |                                      				
+036 000A |  a            DEC 10                  
+037 0014 |  b            DEC 20                  
+038 001E |  c            DEC 30                  
+039 0001 |  one          DEC 1                   
+         |                                      
+03A 0001 |  gcd          DEC 1                   
+03B 104A |  gcd_w        LOAD gcd_b              
+03C 8400 |               SKIPCOND 400            
+03D 903F |               JUMP gcd_body_w         
+03E 9047 |               JUMP gcd_end_w          
+03F 1049 |  gcd_body_w   LOAD gcd_a              
+040 2058 |               STORE mod_a             
+041 104A |               LOAD gcd_b              
+042 2049 |               STORE gcd_a             
+043 2059 |               STORE mod_b             
+044 004D |               JNS mod                 
+045 204A |               STORE gcd_b             
+046 903B |               JUMP gcd_w              
+047 1049 |  gcd_end_w    LOAD gcd_a              
+048 C03A |               JUMPI gcd               
+         |                                      
+049 006E |  gcd_a        DEC 110                 
+04A 0078 |  gcd_b        DEC 120                 
+04B 0082 |  gcd_c        DEC 130                 
+04C 0001 |  gcd_one      DEC 1                   
+         |                                      		
+04D 0000 |  mod          DEC 0                   
+04E 1058 |               LOAD mod_a              
+04F 4059 |               SUBT mod_b              
+050 8000 |  mod_w        SKIPCOND 000            
+051 9053 |               JUMP mod_body_w         
+052 9056 |               JUMP mod_end_w          
+053 2058 |  mod_body_w   STORE mod_a             
+054 4059 |               SUBT mod_b              
+055 9050 |               JUMP mod_w              
+056 1058 |  mod_end_w    LOAD mod_a              
+057 C04D |               JUMPI mod               
+         |                                      
+058 00D2 |  mod_a        DEC 210                 
+059 00DC |  mod_b        DEC 220                 
+         |                                      
+05A 0002 |  div          DEC 2                   
+05B A000 |               CLEAR                   
+05C 206B |               STORE div_i             
+05D 1069 |  div_w        LOAD div_a              
+05E 406A |               SUBT div_b              
+05F 8000 |               SKIPCOND 000            
+060 9062 |               JUMP div_body_w         
+061 9067 |               JUMP div_end_w          
+062 2069 |  div_body_w   STORE div_a             
+063 106B |               LOAD div_i              
+064 306C |               ADD div_one             
+065 206B |               STORE div_i             
+066 905D |               JUMP div_w              
+067 106B |  div_end_w    LOAD div_i              
+068 C05A |               JUMPI div               
+         |                                      
+069 0136 |  div_a        DEC 310                 
+06A 0140 |  div_b        DEC 320                 
+06B 014A |  div_i        DEC 330                 
+06C 0001 |  div_one      DEC 1                   
+         |                                      
+06D 0003 |  mul          DEC 3                   
+06E A000 |               CLEAR                   
+06F 2080 |               STORE mul_s             
+070 2081 |               STORE mul_i             
+071 1081 |  mul_w        LOAD mul_i              
+072 407F |               SUBT mul_b              
+073 8000 |               SKIPCOND 000            
+074 907C |               JUMP mul_end_w          
+075 1080 |               LOAD mul_s              
+076 307E |               ADD mul_a               
+077 2080 |               STORE mul_s             
+078 1081 |               LOAD mul_i              
+079 3082 |               ADD mul_one             
+07A 2081 |               STORE mul_i             
+07B 9071 |               JUMP mul_w              
+07C 1080 |  mul_end_w    LOAD mul_s              
+07D C06D |               JUMPI mul               
+         |                                      		
+07E 019A |  mul_a        DEC 410                 
+07F 01A4 |  mul_b        DEC 420                 
+080 01AE |  mul_s        DEC 430                 
+081 01B8 |  mul_i        DEC 440                 
+082 0001 |  mul_one      DEC 1                   
+
+Assembly successful.
+
+         SYMBOL TABLE
+         --------------------------------------------------------
+          Symbol       | Defined | References 
+         --------------+---------+-------------------------------
+          a            |   036   | 001, 031, 033
+          b            |   037   | 005, 021, 02A
+          body_while_2 |   011   | 00F
+          c            |   038   | 00A, 016, 019, 01C, 024, 027
+          div          |   05A   | 011, 020, 026, 02D, 068
+          div_a        |   069   | 00C, 017, 025, 029, 05D, 062
+          div_b        |   06A   | 008, 01F, 02B, 05E
+          div_body_w   |   062   | 060
+          div_end_w    |   067   | 061
+          div_i        |   06B   | 05C, 063, 065, 067
+          div_one      |   06C   | 064
+          div_w        |   05D   | 066
+          end_while    |   035   | 003
+          end_while_2  |   02D   | 010
+          gcd          |   03A   | 01E, 048
+          gcd_a        |   049   | 018, 03F, 042, 047
+          gcd_b        |   04A   | 01D, 03B, 041, 045
+          gcd_body_w   |   03F   | 03D
+          gcd_c        |   04B   | 
+          gcd_end_w    |   047   | 03E
+          gcd_one      |   04C   | 
+          gcd_w        |   03B   | 046
+          mod          |   04D   | 00D, 044, 057
+          mod_a        |   058   | 00B, 028, 040, 04E, 053, 056
+          mod_b        |   059   | 007, 023, 043, 04F, 054
+          mod_body_w   |   053   | 051
+          mod_end_w    |   056   | 052
+          mod_w        |   050   | 055
+          mul          |   06D   | 015, 01B, 07D
+          mul_a        |   07E   | 006, 01A, 022, 076
+          mul_b        |   07F   | 014, 072
+          mul_end_w    |   07C   | 074
+          mul_i        |   081   | 070, 071, 078, 07A
+          mul_one      |   082   | 079
+          mul_s        |   080   | 06F, 075, 077, 07C
+          mul_w        |   071   | 07B
+          one          |   039   | 012, 032
+          while        |   002   | 034
+          while_2      |   00D   | 02C
+         --------------------------------------------------------
+
+

@@ -1,0 +1,10 @@
+ ---------------------
+ Symbol     | Location
+ -----------+---------
+ mod        |   007
+ mod_a      |   012
+ mod_b      |   013
+ mod_body_w |   00D
+ mod_end_w  |   010
+ mod_w      |   00A
+

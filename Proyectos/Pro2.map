@@ -1,0 +1,33 @@
+ ------------------------
+ Symbol        | Location
+ --------------+---------
+ a             |   020
+ b             |   021
+ body_while    |   006
+ body_while2   |   010
+ cero          |   024
+ dos           |   04A
+ end_while     |   01F
+ end_while2    |   01A
+ mod           |   04B
+ mod_a         |   056
+ mod_b         |   057
+ mod_body_w    |   051
+ mod_end_w     |   054
+ mod_w         |   04E
+ n             |   022
+ prime         |   026
+ prime_a       |   046
+ prime_b       |   047
+ prime_body_w  |   038
+ prime_c       |   048
+ prime_end_if  |   03C
+ prime_end_if2 |   044
+ prime_end_w   |   042
+ prime_r       |   049
+ prime_w       |   031
+ r             |   023
+ uno           |   025
+ while         |   002
+ while2        |   00C
+

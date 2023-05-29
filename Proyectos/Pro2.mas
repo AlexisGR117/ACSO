@@ -1,0 +1,94 @@
+		input
+		subt uno
+while,	  store n
+		skipcond 000
+		jump body_while
+		jump end_while
+body_while,     load cero
+		store r
+		input
+		store a
+		input
+		store b
+while2,	 subt a
+		skipcond 000
+		jump body_while2
+		jump end_while2	
+body_while2,    load a
+		store prime_a		
+		jns prime
+		add r
+		store r
+		load a
+		add uno
+		store a
+		load b
+		jump while2
+end_while2,     load r
+		output
+		load n
+		subt uno
+		jump while
+end_while,      halt
+
+		a, dec 10
+		b, dec 20
+		n, dec 30
+		r, dec 40
+		cero, dec 0
+		uno, dec 1
+
+		prime, dec 1
+		load cero
+		store prime_r
+		load dos
+		store prime_b
+		store mod_b
+		load prime_a
+		subt uno
+		skipcond 400
+		jump prime_w
+		jump prime_end_if2
+prime_w,	load prime_a
+		store mod_a
+		subt uno
+		subt prime_b
+ 	       skipcond 000
+		jump prime_body_w
+		jump prime_end_w
+prime_body_w,	jns mod
+		skipcond 400
+		jump prime_end_if
+		jump prime_end_if2
+prime_end_if,	load prime_b
+		add uno
+		store prime_b
+		store mod_b
+		load prime_a
+		jump prime_w
+prime_end_w,	load uno
+		store prime_r
+prime_end_if2,	load prime_r
+		jumpi prime
+
+		prime_a, dec 110	
+		prime_b, dec 120
+		prime_c, dec 130
+		prime_r, dec 140
+		dos, dec 2
+
+		mod, dec 0
+                load mod_a
+		subt mod_b
+mod_w,	        skipcond 000
+		jump mod_body_w
+		jump mod_end_w
+mod_body_w,     store mod_a
+		subt mod_b
+		jump mod_w
+mod_end_w,      load mod_a
+		jumpi mod
+
+		mod_a, dec 210	
+		mod_b, dec 220
+				

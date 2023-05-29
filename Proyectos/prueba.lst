@@ -1,0 +1,42 @@
+     Assembly listing for: prueba.mas
+                Assembled: Sun Oct 30 09:01:33 COT 2022
+
+000 5000 |             INPUT                 
+001 2012 |             STORE mod_a           
+002 5000 |             INPUT                 
+003 2013 |             STORE mod_b           
+004 0007 |             JNS mod               
+005 6000 |             OUTPUT                
+006 7000 |             HALT                  
+         |                                  
+007 0000 |  mod        DEC 0                 
+008 1012 |             LOAD mod_a            
+009 4013 |             SUBT mod_b            
+00A 8000 |  mod_w      SKIPCOND 000          
+00B 900D |             JUMP mod_body_w       
+00C 9010 |             JUMP mod_end_w        
+00D 2012 |  mod_body_w STORE mod_a           
+00E 4013 |             SUBT mod_b            
+00F 900A |             JUMP mod_w            
+010 1012 |  mod_end_w  LOAD mod_a            
+011 C007 |             JUMPI mod             
+         |                                  
+012 00D2 |  mod_a      DEC 210               
+013 00DC |  mod_b      DEC 220               
+         |                                  				
+
+Assembly successful.
+
+         SYMBOL TABLE
+         ------------------------------------------------------
+          Symbol     | Defined | References 
+         ------------+---------+-------------------------------
+          mod        |   007   | 004, 011
+          mod_a      |   012   | 001, 008, 00D, 010
+          mod_b      |   013   | 003, 009, 00E
+          mod_body_w |   00D   | 00B
+          mod_end_w  |   010   | 00C
+          mod_w      |   00A   | 00F
+         ------------------------------------------------------
+
+

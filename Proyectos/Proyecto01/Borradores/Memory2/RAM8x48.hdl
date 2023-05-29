@@ -1,0 +1,19 @@
+CHIP RAM8x48 {
+    IN in2[16],in1[16],in0[16],load,address[3];
+    OUT out2[16],out1[16],out0[16];
+    PARTS:
+		DMux8Way(in=load, sel=address, a=DA, b=DB, c=DC, d=DD, e=DE, f=DF, g=DG, h=DH);
+
+		Register48Bit(in2=in2, in1=in1, in0=in0, load=DA, out2=S2A, out1=S1A, out0=S0A);
+		Register48Bit(in2=in2, in1=in1, in0=in0, load=DB, out2=S2B, out1=S1B, out0=S0B);
+		Register48Bit(in2=in2, in1=in1, in0=in0, load=DC, out2=S2C, out1=S1C, out0=S0C);
+		Register48Bit(in2=in2, in1=in1, in0=in0, load=DD, out2=S2D, out1=S1D, out0=S0D);
+		Register48Bit(in2=in2, in1=in1, in0=in0, load=DE, out2=S2E, out1=S1E, out0=S0E);
+		Register48Bit(in2=in2, in1=in1, in0=in0, load=DF, out2=S2F, out1=S1F, out0=S0F);
+		Register48Bit(in2=in2, in1=in1, in0=in0, load=DG, out2=S2G, out1=S1G, out0=S0G);
+		Register48Bit(in2=in2, in1=in1, in0=in0, load=DH, out2=S2H, out1=S1H, out0=S0H);
+
+		Mux8Way16(a=S2A, b=S2B, c=S2C, d=S2D, e=S2E, f=S2F, g=S2G, h=S2H, sel=address, out=out2);
+		Mux8Way16(a=S1A, b=S1B, c=S1C, d=S1D, e=S1E, f=S1F, g=S1G, h=S1H, sel=address, out=out1);
+		Mux8Way16(a=S0A, b=S0B, c=S0C, d=S0D, e=S0E, f=S0F, g=S0G, h=S0H, sel=address, out=out0);
+}

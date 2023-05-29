@@ -1,0 +1,44 @@
+CHIP memory {
+	IN a[5],in2[16],in1[16],in0[16],w;
+	OUT out2[16],out1[16],out0[16];
+	PARTS:
+		DMux32Way(in=w, sel=a, a=DA, b=DB, c=DC, d=DD, e=DE, f=DF, g=DG, h=DH, i=DI, j=DJ, k=DK, l=DL, m=DM, n=DN, o=DO, p=DP, q=DQ, r=DR, s=DS, t=DT, u=DU, v=DV, w=DW, x=DX, y=DY, z=DZ, aa=DAA, ab=DAB, ac=DAC, ad=DAD, ae=DAE, af=DAF);
+
+		Register48Bit(in2=in2, in1=in1, in0=in0, load=DA, out2=S2A, out1=S1A, out0=S0A);
+		Register48Bit(in2=in2, in1=in1, in0=in0, load=DB, out2=S2B, out1=S1B, out0=S0B);
+		Register48Bit(in2=in2, in1=in1, in0=in0, load=DC, out2=S2C, out1=S1C, out0=S0C);
+		Register48Bit(in2=in2, in1=in1, in0=in0, load=DD, out2=S2D, out1=S1D, out0=S0D);
+		Register48Bit(in2=in2, in1=in1, in0=in0, load=DE, out2=S2E, out1=S1E, out0=S0E);
+		Register48Bit(in2=in2, in1=in1, in0=in0, load=DF, out2=S2F, out1=S1F, out0=S0F);
+		Register48Bit(in2=in2, in1=in1, in0=in0, load=DG, out2=S2G, out1=S1G, out0=S0G);
+		Register48Bit(in2=in2, in1=in1, in0=in0, load=DH, out2=S2H, out1=S1H, out0=S0H);
+		Register48Bit(in2=in2, in1=in1, in0=in0, load=DI, out2=S2I, out1=S1I, out0=S0I);
+		Register48Bit(in2=in2, in1=in1, in0=in0, load=DJ, out2=S2J, out1=S1J, out0=S0J);
+		Register48Bit(in2=in2, in1=in1, in0=in0, load=DK, out2=S2K, out1=S1K, out0=S0K);
+		Register48Bit(in2=in2, in1=in1, in0=in0, load=DL, out2=S2L, out1=S1L, out0=S0L);
+		Register48Bit(in2=in2, in1=in1, in0=in0, load=DM, out2=S2M, out1=S1M, out0=S0M);
+		Register48Bit(in2=in2, in1=in1, in0=in0, load=DN, out2=S2N, out1=S1N, out0=S0N);
+		Register48Bit(in2=in2, in1=in1, in0=in0, load=DO, out2=S2O, out1=S1O, out0=S0O);
+		Register48Bit(in2=in2, in1=in1, in0=in0, load=DP, out2=S2P, out1=S1P, out0=S0P);
+		Register48Bit(in2=in2, in1=in1, in0=in0, load=DQ, out2=S2Q, out1=S1Q, out0=S0Q);
+		Register48Bit(in2=in2, in1=in1, in0=in0, load=DR, out2=S2R, out1=S1R, out0=S0R);
+		Register48Bit(in2=in2, in1=in1, in0=in0, load=DS, out2=S2S, out1=S1S, out0=S0S);
+		Register48Bit(in2=in2, in1=in1, in0=in0, load=DT, out2=S2T, out1=S1T, out0=S0T);
+		Register48Bit(in2=in2, in1=in1, in0=in0, load=DU, out2=S2U, out1=S1U, out0=S0U);
+		Register48Bit(in2=in2, in1=in1, in0=in0, load=DV, out2=S2V, out1=S1V, out0=S0V);
+		Register48Bit(in2=in2, in1=in1, in0=in0, load=DW, out2=S2W, out1=S1W, out0=S0W);
+		Register48Bit(in2=in2, in1=in1, in0=in0, load=DX, out2=S2X, out1=S1X, out0=S0X);
+		Register48Bit(in2=in2, in1=in1, in0=in0, load=DY, out2=S2Y, out1=S1Y, out0=S0Y);
+		Register48Bit(in2=in2, in1=in1, in0=in0, load=DZ, out2=S2Z, out1=S1Z, out0=S0Z);
+		Register48Bit(in2=in2, in1=in1, in0=in0, load=DAA, out2=S2AA, out1=S1AA, out0=S0AA);
+		Register48Bit(in2=in2, in1=in1, in0=in0, load=DAB, out2=S2AB, out1=S1AB, out0=S0AB);
+		Register48Bit(in2=in2, in1=in1, in0=in0, load=DAC, out2=S2AC, out1=S1AC, out0=S0AC);
+		Register48Bit(in2=in2, in1=in1, in0=in0, load=DAD, out2=S2AD, out1=S1AD, out0=S0AD);
+		Register48Bit(in2=in2, in1=in1, in0=in0, load=DAE, out2=S2AE, out1=S1AE, out0=S0AE);
+		Register48Bit(in2=in2, in1=in1, in0=in0, load=DAF, out2=S2AF, out1=S1AF, out0=S0AF);
+
+		Mux32Way16(a=S2A, b=S2B, c=S2C, d=S2D, e=S2E, f=S2F, g=S2G, h=S2H, i=S2I, j=S2J, k=S2K, l=S2L, m=S2M, n=S2N, o=S2O, p=S2P, q=S2Q, r=S2R, s=S2S, t=S2T, u=S2U, v=S2V, w=S2W, x=S2X, y=S2Y, z=S2Z, aa=S2AA, ab=S2AB, ac=S2AC, ad=S2AD, ae=S2AE, af=S2AF, sel=a, out=out2);
+		Mux32Way16(a=S1A, b=S1B, c=S1C, d=S1D, e=S1E, f=S1F, g=S1G, h=S1H, i=S1I, j=S1J, k=S1K, l=S1L, m=S1M, n=S1N, o=S1O, p=S1P, q=S1Q, r=S1R, s=S1S, t=S1T, u=S1U, v=S1V, w=S1W, x=S1X, y=S1Y, z=S1Z, aa=S1AA, ab=S1AB, ac=S1AC, ad=S1AD, ae=S1AE, af=S1AF, sel=a, out=out1);
+		Mux32Way16(a=S0A, b=S0B, c=S0C, d=S0D, e=S0E, f=S0F, g=S0G, h=S0H, i=S0I, j=S0J, k=S0K, l=S0L, m=S0M, n=S0N, o=S0O, p=S0P, q=S0Q, r=S0R, s=S0S, t=S0T, u=S0U, v=S0V, w=S0W, x=S0X, y=S0Y, z=S0Z, aa=S0AA, ab=S0AB, ac=S0AC, ad=S0AD, ae=S0AE, af=S0AF, sel=a, out=out0);
+}
+		

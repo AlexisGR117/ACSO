@@ -1,0 +1,30 @@
+/mul multiplicacion entera
+/Input a, b
+/Output  ab
+		input 
+		store mul_a
+		input
+		store mul_b
+		clear
+		store mul_s
+		store mul_i
+mul_w,          load mul_i
+		subt mul_b
+		skipcond 000
+		jump mul_end_w
+		load mul_s
+		add mul_a
+		store mul_s
+		load mul_i
+		add mul_one
+		store mul_i
+		jump mul_w
+mul_end_w,      load mul_s
+		output
+		halt
+		
+		mul_a, dec 10	
+		mul_b, dec 20
+		mul_s, dec 30
+		mul_i, dec 40
+		mul_one, dec 1

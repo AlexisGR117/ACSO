@@ -1,0 +1,33 @@
+ ---------------------
+ Symbol     | Location
+ -----------+---------
+ a          |   03D
+ b          |   03E
+ c          |   03F
+ d          |   040
+ div        |   064
+ div_a      |   073
+ div_b      |   074
+ div_body_w |   06C
+ div_end_w  |   071
+ div_i      |   075
+ div_one    |   076
+ div_w      |   067
+ e          |   041
+ gcd        |   044
+ gcd_a      |   053
+ gcd_b      |   054
+ gcd_body_w |   049
+ gcd_c      |   055
+ gcd_end_w  |   051
+ gcd_one    |   056
+ gcd_w      |   045
+ mod        |   057
+ mod_a      |   062
+ mod_b      |   063
+ mod_body_w |   05D
+ mod_end_w  |   060
+ mod_w      |   05A
+ p          |   042
+ t          |   043
+

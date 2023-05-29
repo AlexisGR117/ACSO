@@ -1,0 +1,42 @@
+/gcd Maximo comun divisor
+/Input a, b
+/Output maximo comun divisor
+		input 
+		store gcd_a
+		input
+		store gcd_b
+gcd_w,          load gcd_b
+		skipcond 400
+		jump gcd_body_w
+		jump gcd_end_w
+gcd_body_w,     load gcd_a
+		store mod_a
+		load gcd_b
+		store gcd_a
+		store mod_b
+		jns mod
+		store gcd_b
+		jump gcd_w
+gcd_end_w,      load gcd_a
+		output
+		halt
+
+		gcd_a, dec 10	
+		gcd_b, dec 20
+		gcd_c, dec 30
+		gcd_one, dec 1
+		
+		mod, dec 0
+                load mod_a
+		subt mod_b
+mod_w,	  skipcond 000
+		jump mod_body_w
+		jump mod_end_w
+mod_body_w,     store mod_a
+		subt mod_b
+		jump mod_w
+mod_end_w,      load mod_a
+		jumpi mod
+
+		mod_a, dec 10	
+		mod_b, dec 20

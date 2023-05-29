@@ -1,0 +1,7 @@
+CHIP Or2 {
+	IN A1,A0,B1,B0;
+	OUT C1,C0;
+	PARTS:
+		Or(a=A1, b=B1, out=C1);	
+		Or(a=A0, b=B0, out=C0);		
+}

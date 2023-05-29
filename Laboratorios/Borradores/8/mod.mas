@@ -1,0 +1,21 @@
+/mod Reiduo division entera
+/Input a, b
+/Output a mod b
+		input 
+		store mod_a
+		input
+		store mod_b
+                load mod_a
+		subt mod_b
+mod_w,	  skipcond 000
+		jump mod_body_w
+		jump mod_end_w
+mod_body_w,     store mod_a
+		subt mod_b
+		jump mod_w
+mod_end_w,      load mod_a
+		output
+		halt
+
+		mod_a, dec 10	
+		mod_b, dec 20

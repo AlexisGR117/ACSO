@@ -1,0 +1,8 @@
+CHIP increment {
+	IN a2[16],a1[16],a0[16];
+	OUT b2[16],b1[16],b0[16];
+	PARTS:
+		FullAdder16(a=a0, b=false, c=true, sum=b0, carry=CA);
+		FullAdder16(a=a1, b=false, c=CA, sum=b1, carry=CB);
+		FullAdder16(a=a2, b=false, c=CB, sum=b2, carry=drop);		
+}

@@ -1,0 +1,9 @@
+CHIP FullAdder16 {
+    IN a[16],b[16],c;
+    OUT sum[16],carry;
+    PARTS:
+		HalfAdder16(a=a, b=b, sum=SA, carry=CA);
+		Carry16(c=c, carry=CB);
+		HalfAdder16(a=SA, b=CB, sum=sum, carry=CC);
+		Or(a=CA, b=CC, out=carry);		    
+}

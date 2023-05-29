@@ -1,0 +1,52 @@
+		load cero
+		store c
+		load uno
+		store b
+		store mod_a
+		input
+		store a
+		store mod_b
+while,		subt b
+ 		skipcond 000
+		jump body_while
+		jump end_while
+body_while,	jns mod
+		skipcond 400
+		jump end_if
+		load c
+		add uno
+end_if,		load b
+		add uno
+		store b
+		store mod_a
+		load a
+		jump while
+end_while,	load c
+		subt dos
+		skipcond 400
+		jump end_if2
+		load uno
+end_if2, 	output
+		halt
+
+		a, dec 10	
+		b, dec 20
+		c, dec 30
+		cero, dec 0
+		uno, dec 1
+
+		mod, dec 0
+                load mod_a
+		subt mod_b
+mod_w,	        skipcond 000
+		jump mod_body_w
+		jump mod_end_w
+mod_body_w,     store mod_a
+		subt mod_b
+		jump mod_w
+mod_end_w,      load mod_a
+		jumpi mod
+
+		mod_a, dec 210	
+		mod_b, dec 220
+				

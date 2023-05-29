@@ -1,0 +1,16 @@
+CHIP memory {
+	IN a[5],in2[16],in1[16],in0[16],w;
+	OUT out2[16],out1[16],out0[16];
+	PARTS:
+		DMux4Way(in=w, sel=a[3..4], a=DA, b=DB, c=DC, d=DD);
+
+		RAM8x48(in2=in2, in1=in1, in0=in0, load=DA, address=a[0..2], out2=S2A, out1=S1A, out0=S0A);
+		RAM8x48(in2=in2, in1=in1, in0=in0, load=DB, address=a[0..2], out2=S2B, out1=S1B, out0=S0B);
+		RAM8x48(in2=in2, in1=in1, in0=in0, load=DC, address=a[0..2], out2=S2C, out1=S1C, out0=S0C);
+		RAM8x48(in2=in2, in1=in1, in0=in0, load=DD, address=a[0..2], out2=S2D, out1=S1D, out0=S0D);
+
+		Mux4Way16(a=S2A, b=S2B, c=S2C, d=S2D, sel=a[3..4], out=out2);
+		Mux4Way16(a=S1A, b=S1B, c=S1C, d=S1D, sel=a[3..4], out=out1);
+		Mux4Way16(a=S0A, b=S0B, c=S0C, d=S0D, sel=a[3..4], out=out0);
+}
+		
